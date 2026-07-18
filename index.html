@@ -205,7 +205,7 @@ function buildGrid(mountId, source, layer, key, kind, mirror) {
     tile.className = 'tile' + (kind === 'color' ? ' tile-color' : '');
     tile.setAttribute('role', 'radio');
     tile.setAttribute('aria-checked', 'false');
-    tile.dataset.idx = idx;
+    tile.dataset.idx = pos;
 
     if (kind === 'icon') {
       const img = document.createElement('img');
