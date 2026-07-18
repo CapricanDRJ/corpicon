@@ -288,9 +288,11 @@ document.getElementById('download').addEventListener('click', () => {
 });
 
 // Randomize each group on load so every reload shows a new badge
-Object.keys(groups).forEach(key => {
-  const tiles = groups[key];
-  select(key, +tiles[Math.floor(Math.random() * tiles.length)].dataset.idx);
+window.addEventListener('load', () => {
+  Object.keys(groups).forEach(key => {
+    const tiles = groups[key];
+    select(key, +tiles[Math.floor(Math.random() * tiles.length)].dataset.idx);
+  });
 });
 </script>
 </body>
