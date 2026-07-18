@@ -199,6 +199,7 @@ function buildGrid(mountId, source, layer, key, kind, mirror) {
     // Border-color picker shows the bright Color-1 swatch/glow/name at the same
     // position (mirror=true); the badge still renders with the real dark value.
     const disp = (kind === 'color' && mirror) ? layer0Colors[pos] : item;
+    // Look up the bright color that has the exact same name as the dark one
     const tile = document.createElement('button');
     tile.type = 'button';
     tile.className = 'tile' + (kind === 'color' ? ' tile-color' : '');
@@ -224,7 +225,7 @@ function buildGrid(mountId, source, layer, key, kind, mirror) {
 
     const num = document.createElement('span');
     num.className = 'num';
-    num.textContent = kind === 'icon' ? String(idx) : (idx + ' \u2014 ' + disp.name);
+    num.textContent = kind === 'icon' ? String(idx) : (idx + ' \u2014 ' + item.name);
     tile.appendChild(num);
 
     tile.addEventListener('click', () => select(key, idx));
